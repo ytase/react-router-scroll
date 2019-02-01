@@ -22,7 +22,7 @@ export default class SessionStorage {
   }
 
   getStateKey(location, key) {
-    const locationKey = location.key;
+    const locationKey = location.key || location.pathname;
     const stateKeyBase = `${STATE_KEY_PREFIX}${locationKey}`;
     return key == null ? stateKeyBase : `${stateKeyBase}|${key}`;
   }
